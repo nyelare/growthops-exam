@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { managersData } from "../pages/api/hello";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Nav() {
   const [select, setSelect] = useState();
@@ -28,20 +29,29 @@ function Nav() {
       <div className="flex items-center justify-start p-4">
         <div className="">
           <Image
-            src="/../public/assets/logo.png"
+            src="/assets/logo.png"
             width={75}
             height={50}
             className="cursor-pointer "
           />
         </div>
-        <ul className="flex items-center justify-between gap-16 pl-32 text-sm font-semibold text-white cursor-pointer">
+
+        <ul className="items-center justify-between hidden gap-16 pl-32 text-sm font-semibold text-white cursor-pointer md:flex ">
           <li>OUR PRODUCTS</li>
           <li>ABOUT US</li>
           <li>LIVE BETTER</li>
           <li>CLAIMS & SUPPORT</li>
           <li>MY ACCOUNT</li>
         </ul>
+        <div>
+          <GiHamburgerMenu
+            size={30}
+            color="white"
+            className="flex ml-20 md:hidden"
+          />
+        </div>
       </div>
+
       <div className="p-4 text-4xl font-bold text-center text-amber-800">
         DISTRICT MANAGER
       </div>
@@ -61,7 +71,7 @@ function Nav() {
       <hr className="pt-4" />
       <div className="p-4 mx-auto max-w-7xl place-items-center gap-11">
         <div className="p-4">
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
             {managersData.map((data, key) => {
               return (
                 <div
@@ -71,7 +81,7 @@ function Nav() {
                   <div>
                     <Image
                       className="object-contain"
-                      src="/../public/assets/userphoto.png"
+                      src="/assets/userphoto.png"
                       width={100}
                       height={75}
                     />
